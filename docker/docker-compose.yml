@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  backend:
+    build: ./ecommerce
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./ecommerce/.env
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./frontend/.env
