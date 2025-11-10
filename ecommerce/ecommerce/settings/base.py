@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
      # Third-party
+     'corsheaders',
     'rest_framework',
     'django_filters',
     'rest_framework_simplejwt',
@@ -64,6 +65,7 @@ INSTALLED_APPS = [
 
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -76,6 +78,8 @@ MIDDLEWARE = [
 AUTH_USER_MODEL = 'apps.accounts.User'
 
 ROOT_URLCONF = 'ecommerce.urls'
+
+CORS_ALLOW_ALL_ORIGINS = True
 
 TEMPLATES = [
     {
