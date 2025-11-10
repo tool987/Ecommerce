@@ -5,7 +5,8 @@ from rest_framework import generics, status
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
 from .serializers import RegisterSerializer, LoginSerializer, UserSerializer
-from rest_framework_simplejwt import RefreshToken
+from rest_framework_simplejwt.tokens import RefreshToken
+
 
 class RegisterView(generics.CreateAPIView):
     serializer_class = RegisterSerializer
