@@ -43,20 +43,23 @@ INSTALLED_APPS = [
      # Third-party
     'rest_framework',
     'django_filters',
+    'rest_framework_simplejwt',
 
     # Local apps
-    'Apps.accounts',
-    'Apps.products',
-    'Apps.carts',
-    'Apps.orders',
-    'Apps.payments',
-    'Apps.shipping',
-    'Apps.reviews',
-    'Apps.wishlist',
-    'Apps.analytics',
-    'Apps.notifications',
-    'Apps.core',
+'apps.accounts',
+'apps.products',
+'apps.carts',
+'apps.orders',
+'apps.payments',
+'apps.shipping',
+'apps.reviews',
+'apps.wishlist',
+'apps.analytics',
+'apps.notifications',
+'apps.core',
+
 ]
+
 
 
 
@@ -69,6 +72,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+AUTH_USER_MODEL = 'apps.accounts.User'
 
 ROOT_URLCONF = 'ecommerce.urls'
 
@@ -104,7 +109,7 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ecommerce',       # your PostgreSQL database name
+        'NAME': ' postgres',       # your PostgreSQL database name
         'USER': 'postgres',
         'PASSWORD': 'Ilvs@123',
         'HOST': 'localhost',
