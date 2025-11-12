@@ -3,30 +3,26 @@ from django.utils import timezone
 from django.utils.text import slugify
 
 
-# Create your models here.
-
 class TimestampedModel(models.Model):
-    created_at  = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now =True)
-
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         abstract = True
 
+
 class Category(TimestampedModel):
     name = models.CharField(max_length=150)
-    slug = models.SlugField(unique = True,blank=True)
+    slug = models.SlugField(unique=True, blank=True)
 
     class Meta:
         ordering = ["name"]
-    
 
-    def save(self,*args,**kwargs):
+    def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.name)
-        super().save(*args,**kwargs)
+        super().save(*args, **kwargs)
 
-    
     def __str__(self):
         return self.name
 
@@ -47,6 +43,9 @@ class Product(TimestampedModel):
         blank=True,
         default=None,
     )
+    # ✅ New image field
+    image = models.ImageField(upload_to="products/", null=True, blank=True)
+
     class Meta:
         ordering = ["-created_at"]
 

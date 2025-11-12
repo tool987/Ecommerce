@@ -15,7 +15,7 @@ class ProductSerializer(serializers.ModelSerializer):
         queryset=Category.objects.all(),
         write_only=True,
         source="category",
-        default= None
+        default=None
     )
 
     in_stock = serializers.BooleanField(read_only=True)
@@ -34,6 +34,7 @@ class ProductSerializer(serializers.ModelSerializer):
             "is_active",
             "category",
             "category_id",
+            "image",  # allow upload
             "created_at",
             "updated_at",
         ]
