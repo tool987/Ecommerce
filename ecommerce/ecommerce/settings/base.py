@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
 import os
 from dotenv import load_dotenv
 load_dotenv()
@@ -110,27 +111,39 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 # }
 
 
+
+
+DATABASES = {
+    'default': dj_database_url.config(
+        default=os.getenv("DATABASE_URL"),
+        conn_max_age=600,
+        ssl_require=True
+    )
+}
+
+
+
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
 #         'NAME': 'ecommerce',       # your PostgreSQL database name
 #         'USER': 'postgres',
-#         'PASSWORD': 'qrg69SOmznutYwK0',
+#         'PASSWORD': '7WNsrjanHfNHIaEI',
 #         'HOST': 'endfwdasmdwzizwivchw.supabase.co',
 #         'PORT': '5432',
 #     }
 # }
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'datab',
-        'USER': 'postgres',
-        'PASSWORD': 'Ilvs@123',
-        'HOST': 'localhost',
-        'PORT': '5433',
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'datab',
+#         'USER': 'postgres',
+#         'PASSWORD': 'Ilvs@123',
+#         'HOST': 'localhost',
+#         'PORT': '5433',
         
-    }
-}
+#     }
+# }
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 
