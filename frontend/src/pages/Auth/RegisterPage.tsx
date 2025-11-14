@@ -1,8 +1,10 @@
+
 import React, { useState } from "react";
 import { register } from "../../services/AuthService";
 
 const RegisterPage: React.FC = () => {
-  const [username, setUsername] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState<string | null>(null);
@@ -13,9 +15,10 @@ const RegisterPage: React.FC = () => {
     setLoading(true);
     setMessage(null);
     try {
-      await register(username, email, password);
+      await register({ first_name: firstName, last_name: lastName, email, password });
       setMessage("Account created successfully! Please log in.");
-      setUsername("");
+      setFirstName("");
+      setLastName("");
       setEmail("");
       setPassword("");
     } catch (err: any) {
@@ -34,17 +37,32 @@ const RegisterPage: React.FC = () => {
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              Username
+              First Name
             </label>
             <input
               type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
               required
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-400 outline-none"
-              placeholder="JohnDoe"
+              placeholder="John"
             />
           </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Last Name
+            </label>
+            <input
+              type="text"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+              required
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-400 outline-none"
+              placeholder="Doe"
+            />
+          </div>
+
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Email
@@ -58,6 +76,7 @@ const RegisterPage: React.FC = () => {
               placeholder="you@example.com"
             />
           </div>
+
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Password
@@ -73,9 +92,7 @@ const RegisterPage: React.FC = () => {
           </div>
 
           {message && (
-            <p className="text-sm text-center text-blue-600 font-medium">
-              {message}
-            </p>
+            <p className="text-sm text-center text-blue-600 font-medium">{message}</p>
           )}
 
           <button
@@ -89,10 +106,7 @@ const RegisterPage: React.FC = () => {
 
         <p className="text-center text-sm text-gray-600 mt-4">
           Already have an account?{" "}
-          <a
-            href="/login"
-            className="text-green-600 hover:underline font-medium"
-          >
+          <a href="/login" className="text-green-600 hover:underline font-medium">
             Login
           </a>
         </p>

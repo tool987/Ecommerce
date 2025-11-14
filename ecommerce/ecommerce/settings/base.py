@@ -75,7 +75,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-AUTH_USER_MODEL = 'apps.accounts.User'
+AUTH_USER_MODEL = 'accounts.User'
 
 ROOT_URLCONF = 'ecommerce.urls'
 
@@ -110,17 +110,27 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 # }
 
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'ecommerce',       # your PostgreSQL database name
+#         'USER': 'postgres',
+#         'PASSWORD': 'qrg69SOmznutYwK0',
+#         'HOST': 'endfwdasmdwzizwivchw.supabase.co',
+#         'PORT': '5432',
+#     }
+# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ecommerce',       # your PostgreSQL database name
+        'NAME': 'datab',
         'USER': 'postgres',
         'PASSWORD': 'Ilvs@123',
         'HOST': 'localhost',
-        'PORT': '5432',
+        'PORT': '5433',
+        
     }
 }
-
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 
