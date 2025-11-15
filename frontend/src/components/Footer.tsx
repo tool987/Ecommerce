@@ -21,8 +21,8 @@ const Footer = () => {
 
         <div>
           <h2 className="text-lg font-semibold text-white mb-2">Contact</h2>
-          <p className="text-sm">Email: support@eshop.com</p>
-          <p className="text-sm">Phone: +251 900 00 0000</p>
+          <p className="text-sm">Email: mandefroabebaw3@gmail.com</p>
+          <p className="text-sm">Phone: +251 921 57 8636</p>
         </div>
 
       </div>
