@@ -122,29 +122,15 @@ DATABASES = {
 }
 
 
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'ecommerce',       # your PostgreSQL database name
-#         'USER': 'postgres',
-#         'PASSWORD': '7WNsrjanHfNHIaEI',
-#         'HOST': 'endfwdasmdwzizwivchw.supabase.co',
-#         'PORT': '5432',
-#     }
-# }
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'datab',
-#         'USER': 'postgres',
-#         'PASSWORD': 'Ilvs@123',
-#         'HOST': 'localhost',
-#         'PORT': '5433',
-        
-#     }
-# }
-# Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [

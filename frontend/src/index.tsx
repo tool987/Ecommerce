@@ -9,6 +9,7 @@ import App from "./App";
 import LoginPage from "./pages/Auth/LoginPage";
 import RegisterPage from "./pages/Auth/RegisterPage";
 import ProductDetail from "./pages/ProductDetail";
+import ProfilePage from "./pages/ProfilePage";
 
 import reportWebVitals from './reportWebVitals';
 
@@ -18,6 +19,8 @@ root.render(
     <Routes>
       {/* Layout wraps all pages that share Navbar & Footer */}
       <Route path="/" element={<Layout />}>
+      <Route path="profile" element={<ProfilePage />} />
+
         <Route index element={<App />} />           {/* "/" home page */}
         <Route path="product/:slug" element={<ProductDetail />} />
         <Route path="login" element={<LoginPage />} />
