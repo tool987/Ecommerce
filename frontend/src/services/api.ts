@@ -1,3 +1,4 @@
+
 import axios from "axios";
 
 const API = axios.create({
@@ -5,8 +6,17 @@ const API = axios.create({
   headers: { "Content-Type": "application/json" },
 });
 
-export const registerUser = (data: { username: string; email: string; password: string }) =>
+// ---------------- AUTH ----------------
+export const registerUser = (data: { first_name: string; last_name: string; email: string; password: string }) =>
   API.post("/accounts/register/", data);
 
 export const loginUser = (data: { email: string; password: string }) =>
   API.post("/accounts/login/", data);
+
+// ---------------- PRODUCTS ----------------
+export const getProducts = () => API.get("/products/");
+
+export const getProductDetail = (slug: string) =>
+  API.get(`/products/${slug}/`);
+
+export default API;
