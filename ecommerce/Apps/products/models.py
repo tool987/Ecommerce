@@ -1,5 +1,4 @@
 from django.db import models
-from django.utils import timezone
 from django.utils.text import slugify
 
 
@@ -43,7 +42,6 @@ class Product(TimestampedModel):
         blank=True,
         default=None,
     )
-    # ✅ New image field
     image = models.ImageField(upload_to="products/", null=True, blank=True)
 
     class Meta:
@@ -54,11 +52,9 @@ class Product(TimestampedModel):
             base_slug = slugify(self.name)
             slug = base_slug
             counter = 1
-
             while Product.objects.filter(slug=slug).exists():
                 slug = f"{base_slug}-{counter}"
                 counter += 1
-
             self.slug = slug
         super().save(*args, **kwargs)
 
