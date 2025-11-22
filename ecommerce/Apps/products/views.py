@@ -5,7 +5,6 @@ from .models import Product
 from .serializers import ProductSerializer
 from .filters import ProductFilter
 
-
 class ProductListCreateView(generics.ListCreateAPIView):
     queryset = Product.objects.select_related("category").all()
     serializer_class = ProductSerializer

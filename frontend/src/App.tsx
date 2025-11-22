@@ -1,5 +1,6 @@
 
 import { useEffect, useState } from "react";
+import React from "react";
 import { getProducts } from "./services/api";
 import ProductCard from "./components/ProductCard";
 

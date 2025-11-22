@@ -3,16 +3,10 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from .models import User, Profile, BankInfo
 from django.utils.translation import gettext_lazy as _
 
-
-
-
 class ProfileInline(admin.StackedInline):
     model = Profile
     can_delete = False
     verbose_name_plural = 'profile'
-
-
-
 
 @admin.register(User)
 class UserAdmin(BaseUserAdmin):
@@ -21,15 +15,16 @@ class UserAdmin(BaseUserAdmin):
     list_filter = ('is_staff', 'is_active', 'is_superuser')
     ordering = ('email',)
     search_fields = ('email', 'first_name', 'last_name')
+    readonly_fields = ('date_joined',)  # 👈 FIX
 
 
     fieldsets = (
     (None, {'fields': ('email', 'password')}),
     (_('Personal info'), {'fields': ('first_name', 'last_name')}),
     (_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser')}),
-    (_('Important dates'), {'fields': ('date_joined',)}),
-)
+   (_('Important dates'), {'fields': ('date_joined',), 'classes': ('collapse',)}),
 
+    )
 
 
 

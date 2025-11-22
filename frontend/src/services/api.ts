@@ -14,9 +14,9 @@ export const loginUser = (data: { email: string; password: string }) =>
   API.post("/accounts/login/", data);
 
 // ---------------- PRODUCTS ----------------
-export const getProducts = () => API.get("/products/");
+export const getProducts = () => API.get("/products/products");
 
 export const getProductDetail = (slug: string) =>
-  API.get(`/products/${slug}/`);
+  API.get(`/products/products/${slug}/`);
 
 export default API;

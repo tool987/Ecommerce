@@ -2,19 +2,14 @@ from rest_framework import serializers
 from django.contrib.auth import authenticate
 from .models import User, Profile, BankInfo
 
-
-# ---------------------------------
 # Profile Serializer
-# ---------------------------------
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
         fields = ['phone', 'address', 'avatar']
 
-
-# ---------------------------------
 # Bank Info Serializer
-# ---------------------------------
+
 class BankInfoSerializer(serializers.ModelSerializer):
     class Meta:
         model = BankInfo
@@ -65,9 +60,7 @@ class BankInfoSerializer(serializers.ModelSerializer):
         return instance
 
 
-# ---------------------------------
 # User Serializer
-# ---------------------------------
 class UserSerializer(serializers.ModelSerializer):
     profile = ProfileSerializer()
     bank_info = BankInfoSerializer(read_only=True)
@@ -98,9 +91,7 @@ class UserSerializer(serializers.ModelSerializer):
         return instance
 
 
-# ---------------------------------
 # Register Serializer
-# ---------------------------------
 class RegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True, min_length=8)
 
@@ -117,9 +108,8 @@ class RegisterSerializer(serializers.ModelSerializer):
         return user
 
 
-# ---------------------------------
 # Login Serializer
-# ---------------------------------
+
 class LoginSerializer(serializers.Serializer):
     email = serializers.EmailField()
     password = serializers.CharField(write_only=True)
@@ -136,9 +126,7 @@ class LoginSerializer(serializers.Serializer):
         raise serializers.ValidationError('Invalid credentials')
 
 
-# ---------------------------------
 # Change Password Serializer
-# ---------------------------------
 class ChangePasswordSerializer(serializers.Serializer):
     old_password = serializers.CharField(write_only=True)
     new_password = serializers.CharField(write_only=True, min_length=8)
