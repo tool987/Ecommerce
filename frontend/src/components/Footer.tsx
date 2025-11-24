@@ -1,3 +1,5 @@
+import { FaInstagram, FaTelegram, FaFacebook, FaTwitter, FaLinkedin, FaPinterest, FaYoutube } from "react-icons/fa";
+
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-gray-300 py-8 mt-10">
@@ -8,6 +10,8 @@ const Footer = () => {
           <p className="text-sm">
             Your trusted online marketplace for quality products.
           </p>
+
+          
         </div>
 
         <div>
@@ -23,6 +27,16 @@ const Footer = () => {
           <h2 className="text-lg font-semibold text-white mb-2">Contact</h2>
           <p className="text-sm">Email: mandefroabebaw3@gmail.com</p>
           <p className="text-sm">Phone: +251 921 57 8636</p>
+          {/* ⭐ Social Icons Section */}
+          <div className="flex gap-4 mt-4 text-xl">
+            <a href="#" className="hover:text-white"><FaInstagram /></a>
+            <a href="#" className="hover:text-white"><FaTelegram /></a>
+            <a href="#" className="hover:text-white"><FaFacebook /></a>
+            <a href="#" className="hover:text-white"><FaTwitter /></a>
+            <a href="#" className="hover:text-white"><FaLinkedin /></a>
+            <a href="#" className="hover:text-white"><FaPinterest /></a>
+            <a href="#" className="hover:text-white"><FaYoutube /></a>
+          </div>
         </div>
 
       </div>

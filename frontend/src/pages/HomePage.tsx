@@ -28,9 +28,9 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            src="/static/hero-store.png"
+            src="/hero-store.png"
             alt="Store Preview"
-            className="w-full rounded-2xl shadow-lg"
+            className="w-[500px] h-[200px] object-cover rounded-2xl shadow-lg"
           />
         </div>
       </section>
